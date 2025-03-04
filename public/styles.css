@@ -1,53 +1,103 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-  }
-  
-  .upload-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  #fileInput {
-    display: none;
-  }
-  
-  .custom-file-label {
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .custom-file-label:hover {
-    background-color: #0056b3;
-  }
-  
-  .upload-button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .upload-button:hover {
-    background-color: #218838;
-  }
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f7f9fc; /* Light background */
+}
+
+.upload-container {
+  background: #ffffff; /* White background */
+  padding: 20px; /* Reduced padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Limit maximum width */
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 20px; /* Slightly smaller font size */
+  color: #343a40; /* Darker text color */
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 18px; /* Font size for the files heading */
+  color: #343a40; /* Darker text color */
+}
+
+.file-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.file-list li {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  background-color: #e9ecef; /* Light gray background for file items */
+  border-radius: 5px;
+  padding: 8px; /* Padding for file items */
+  margin-top: 5px; /* Space between file items */
+  text-align: left; /* Align text to the left */
+  font-weight: bold; /* Bold file names */
+}
+
+.file-list li i {
+  margin-right: 8px; /* Space between icon and text */
+  color: #007bff; /* Icon color */
+}
+
+.file-thumbnail {
+  width: 30px; /* Set width for the thumbnails */
+  height: 30px; /* Set height for the thumbnails */
+  margin-right: 8px; /* Space between image and text */
+  border-radius: 3px; /* Optional: round the corners */
+}
+
+.custom-file-label {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #007bff; /* Blue background */
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 15px; /* Adjust margin */
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+  width: 100%; /* Full width for the label */
+  height: 40px; /* Set a fixed height */
+  text-align: center; /* Center text */
+  line-height: 40px; /* Center text vertically */
+}
+
+.custom-file-label:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+#fileInput {
+  display: none; /* Hide the default file input */
+}
+
+.upload-button {
+  cursor: pointer;
+  background-color: #28a745; /* Green background */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+  width: 100%; /* Full width for the button */
+  height: 40px; /* Set a fixed height */
+  text-align: center; /* Center text */
+  line-height: 40px; /* Center text vertically */
+}
+
+.upload-button:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-1px); /* Subtle lift effect */
+}
