@@ -43,7 +43,8 @@ Navigate to your project directory and install multer using npm:
 npm install multer
 
 Project Main page
-![image](https://github.com/user-attachments/assets/6a079224-1c52-44d0-93d2-acb1cbcaff7d)
+![image](https://github.com/user-attachments/assets/614222d1-7004-419d-9db5-878ef2b3d20c)
+
 
 
 
