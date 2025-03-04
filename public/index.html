@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>File Upload</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMg6Y4sP1G7B5LwF6kHxEr0E6bG6A3K5D5U0Z6" crossorigin="anonymous">
 </head>
 <body>
-  <div class="upload-container">
-    <h1>Upload a Image File</h1>
-    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="myFile" id="fileInput" />
-      <label for="fileInput" class="custom-file-label">Choose File</label>
-      <input type="submit" value="Upload" class="upload-button" />
-    </form>
-  </div>
+    <div class="upload-container">
+        <h1>Upload Your Files</h1>
+        <label class="custom-file-label" for="fileInput">Choose File</label>
+        <input type="file" id="fileInput" multiple>
+        <button class="upload-button">Upload</button>
+
+        <h2>Sample Files:</h2>
+        <ul class="file-list">
+            <li>
+                <i class="fas fa-file-image"></i>
+                <a href="https://images.unsplash.com/photo-1533450718592-29d45635f0a9?fm=jpg&q=60" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1533450718592-29d45635f0a9?fm=jpg&q=60" alt="example1" class="file-thumbnail"> example1.jpg
+                </a>
+            </li>
+            <li>
+                <i class="fas fa-file-image"></i>
+                <a href="https://tinypng.com/static/images/boat.png" target="_blank">
+                    <img src="https://tinypng.com/static/images/boat.png" alt="example2" class="file-thumbnail"> example2.png
+                </a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
