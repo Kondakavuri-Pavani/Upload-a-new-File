@@ -6,13 +6,47 @@
     <title>File Upload</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMg6Y4sP1G7B5LwF6kHxEr0E6bG6A3K5D5U0Z6" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .upload-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .upload-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .upload-button:hover {
+            background-color: #0056b3;
+        }
+        .file-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .file-thumbnail {
+            width: 30px; /* Set a fixed size for thumbnails */
+            height: 30px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
     <div class="upload-container">
         <h1>Upload Your Files</h1>
         <label class="custom-file-label" for="fileInput">Choose File</label>
-        <input type="file" id="fileInput" multiple>
-        <button class="upload-button">Upload</button>
+        <input type="file" id="fileInput" multiple accept="image/*" onchange="displayFileNames()">
+        <button class="upload-button" onclick="uploadFiles()">Upload</button>
+
+        <h2>Selected Files:</h2>
+        <ul id="fileList" class="file-list"></ul>
 
         <h2>Sample Files:</h2>
         <ul class="file-list">
@@ -30,5 +64,49 @@
             </li>
         </ul>
     </div>
+
+    <script>
+        function displayFileNames() {
+            const fileInput = document.getElementById('fileInput');
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = ''; // Clear previous file list
+
+            for (const file of fileInput.files) {
+                const listItem = document.createElement('li');
+                listItem.textContent = file.name;
+                fileList.appendChild(listItem);
+            }
+        }
+
+        async function uploadFiles() {
+            const fileInput = document.getElementById('fileInput');
+
+            if (fileInput.files.length === 0) {
+                alert('No files selected.');
+                return;
+            }
+
+            // Create a FormData object
+            const formData = new FormData();
+            // Append each selected file to the FormData object
+            for (const file of fileInput.files) {
+                formData.append('files', file); // 'files' must match what you expect in multer
+            }
+
+            // Send files to server
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                alert('Files uploaded successfully!');
+                fileInput.value = ''; // Clear the file input
+                document.getElementById('fileList').innerHTML = ''; // Clear the file list
+            } else {
+                alert('Upload failed.');
+            }
+        }
+    </script>
 </body>
 </html>
